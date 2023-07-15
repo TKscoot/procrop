@@ -2,17 +2,14 @@
 
 WorldGrid::WorldGrid(Player* player, Point size)
 {
-	mPlayer = player;
-	mSize = { 16, 16 };
+    mPlayer = player;
+    mSize = {16, 16};
 
-	Engine::Inst()->AddEvent([&](double dt) -> void
-	{
-		mPlayerPos = mPlayer->GetPlayerPos();
-	}, EventType::UPDATE);
+    mTileSet = new TileSheet("res/tilemap.png", {16, 16});
 
-	mTileSet = new TileSheet("res/tilemap.png", { 16, 16 });
+    CreateGrid();
 
-	CreateGrid();
+    Engine::Inst()->AddEvent([&](double dt) -> void { mPlayerPos = mPlayer->GetPlayerPos(); }, EventType::UPDATE);
 }
 
 WorldGrid::~WorldGrid()
@@ -21,117 +18,127 @@ WorldGrid::~WorldGrid()
 
 void WorldGrid::CreateGrid()
 {
-	// foreach chunk [3][3] create chunk object
-	for (int y = 0; y < 3; ++y)
-	{
-		for (int x = 0; x < 3; ++x)
-		{
-			mChunks[x][y] = new GridChunk(mTileSet, mSize, mTileScaling);
-			mChunks[x][y]->GenerateChunk({ x, y });
-		}
-	}
-}
+    // foreach chunk [3][3] create chunk object
+    for (int x = -1; x <= 1; x++)
+    {
+        std::deque<GridChunk*> q;
+        for (int y = -1; y <= 1; y++)
+        {
+            Point p = {x, y};
+            auto c = new GridChunk(mTileSet, p, mSize, mTileScaling);
+            q.push_back(c);
+        }
 
-void WorldGrid::SetGridImage(SDL_Point index, Image* img)
-{
-	// dont care
-}
+        mChunks.push_back(q);
+    }
 
-void WorldGrid::SetGridImage(SDL_Point index, std::string imagePath)
-{
-	// dont care
+    Debug::Warning("Chunks size x: " + std::to_string(mChunks.size()));
 }
 
 void WorldGrid::DrawGrid()
 {
-	static Point currentChunkIndex = { 0, 0 };
-	// check if player in new chunk
-	// currentChunkIndex++--
-	// need boolean like: updateChunk
-	// create new chunk and reposition old chunks and updateChunk = false
+    Point playerChunkTilePos;
+    playerChunkTilePos.x = (mPlayerPos.x / (mTileSet->GetTileDimension().x * mTileScaling.x)) % mSize.x;
+    if (playerChunkTilePos.x < 0)
+        playerChunkTilePos.x += 16;
+    playerChunkTilePos.y = (mPlayerPos.y / (mTileSet->GetTileDimension().y * mTileScaling.y)) % mSize.y;
+    if (playerChunkTilePos.y < 0)
+        playerChunkTilePos.y += 16;
 
-	if (mPlayerPos.x > currentChunkIndex.x * (mSize.x * mTileSet->GetTileDimension().x * mTileScaling.x))
-	{
-		for (int y = 0; y < 2; y++)
-		{
-			for (int x = 0; x < 2; x++)
-			{
-				mChunks[x + 1][y] = mChunks[x][y];
-			}
-		}
-		for (int y = 1; y < 3; y++)
-		{
-			mChunks[0][y] = new GridChunk(mTileSet, mSize, mTileScaling);
-			mChunks[0][y]->GenerateChunk({ 3, y });
-		}
-		currentChunkIndex.x++;
-	}
-	if (mPlayerPos.y > currentChunkIndex.y * (mSize.y * mTileSet->GetTileDimension().y * mTileScaling.y))
-	{
-		currentChunkIndex.y++;
-	}
-	if (mPlayerPos.x < currentChunkIndex.x * (mSize.x * mTileSet->GetTileDimension().x * mTileScaling.x))
-	{
-		currentChunkIndex.x--;
-	}
-	if (mPlayerPos.y < currentChunkIndex.y * (mSize.y * mTileSet->GetTileDimension().y * mTileScaling.y))
-	{
-		currentChunkIndex.y--;
-	}
+    Engine::Inst()->mTextRenderer->RenderText("Chunks size x: " + std::to_string(mChunks.size()), {20, 60, 100, 100});
+    Engine::Inst()->mTextRenderer->RenderText("Chunks size y: " + std::to_string(mChunks.back().size()),
+                                              {20, 80, 100, 100});
 
+    Engine::Inst()->mTextRenderer->RenderText("player tile pos: {" + std::to_string(playerChunkTilePos.x) + ", " +
+                                                  std::to_string(playerChunkTilePos.y) + "}",
+                                              {20, 100, 100, 100});
 
+    CheckChunkBoundaries();
 
+    auto keysArray = SDL_GetKeyboardState(NULL);
 
-	// draw 9 chunks (see milton drawing)
-	for (int y = 0; y < 1; ++y)
-	{
-		for (int x = 0; x < 1; ++x)
-		{
-			Debug::Log("xpos: {} ypos: {}", mPlayerPos.x, mPlayerPos.y);
-			auto relIdx = currentChunkIndex;
-			relIdx.x += x;
-			relIdx.y += y;
-			//mChunks[x][y]->DrawChunk(mPlayerPos, relIdx);
-		}
-	}
-	auto i0 = currentChunkIndex;
-	i0.x -= 1;
-	i0.y += 1;
-	mChunks[0][0]->DrawChunk(mPlayerPos, i0);
-	auto i1 = currentChunkIndex;
-	i1.x -= 0;
-	i1.y += 1;
-	mChunks[0][1]->DrawChunk(mPlayerPos, i1);
-	auto i2 = currentChunkIndex;
-	i2.x += 1;
-	i2.y += 1;
-	mChunks[0][2]->DrawChunk(mPlayerPos, i2);
-	auto i3 = currentChunkIndex;
-	i3.x -= 1;
-	i3.y += 0;
-	mChunks[1][0]->DrawChunk(mPlayerPos, i3);
-	auto i4 = currentChunkIndex;
-	i4.x -= 0;
-	i4.y += 0;
-	mChunks[1][1]->DrawChunk(mPlayerPos, i4);
-	auto i5 = currentChunkIndex;
-	i5.x += 1;
-	i5.y += 0;
-	mChunks[1][2]->DrawChunk(mPlayerPos, i5);
-	auto i6 = currentChunkIndex;
-	i6.x -= 1;
-	i6.y -= 1;
-	mChunks[2][0]->DrawChunk(mPlayerPos, i6);
-	auto i7 = currentChunkIndex;
-	i7.x -= 0;
-	i7.y -= 1;
-	mChunks[2][1]->DrawChunk(mPlayerPos, i7);
-	auto i8 = currentChunkIndex;
-	i8.x += 1;
-	i8.y -= 1;
-	mChunks[2][2]->DrawChunk(mPlayerPos, i8);
+    if (keysArray[SDL_SCANCODE_F])
+    {
+        // TODO: change tile based on player pos
+        mChunks[1][1]->SetTileImage(playerChunkTilePos, mTileSet->GetTileImage(1));
+    }
 
-	Engine::Inst()->mTextRenderer->RenderText(
-			"ChunkIdx: " + currentChunkIndex.ToString(),
-			{ 20, 40, 100, 100 });
+    Engine::Inst()->mTextRenderer->RenderText("current Chunks: " + mCurrentChunkIndex.ToString(), {20, 40, 100, 100});
+
+    for (int x = 0; x < mChunks.size(); x++)
+    {
+        for (int y = 0; y < mChunks[x].size(); y++)
+        {
+            mChunks[x][y]->DrawChunk(mPlayerPos);
+        }
+    }
+}
+
+void WorldGrid::CheckChunkBoundaries()
+{
+    if (mPlayerPos.x > (mCurrentChunkIndex.x + 1) * (mSize.x * mTileSet->GetTileDimension().x * mTileScaling.x))
+    {
+        mCurrentChunkIndex.x++;
+
+        // Queue with Chunk idx
+        mChunks.push_back(std::deque<GridChunk*>());
+
+        for (int y = -1; y <= 1; y++)
+        {
+            Point p = {mCurrentChunkIndex.x + 1, y + mCurrentChunkIndex.y};
+            auto c = new GridChunk(mTileSet, p, mSize, mTileScaling);
+            mChunks.back().push_back(c);
+        }
+
+        for (int i = 0; i < mChunks.front().size(); ++i)
+        {
+            delete mChunks.front()[i];
+        }
+        mChunks.pop_front();
+    }
+    if (mPlayerPos.y > (mCurrentChunkIndex.y + 1) * (mSize.y * mTileSet->GetTileDimension().y * mTileScaling.y))
+    {
+        mCurrentChunkIndex.y++;
+
+        for (int x = -1; x <= 1; x++)
+        {
+            Point p = {x + mCurrentChunkIndex.x, mCurrentChunkIndex.y + 1};
+            auto c = new GridChunk(mTileSet, p, mSize, mTileScaling);
+            mChunks[x + 1].push_back(c);
+            delete mChunks[x + 1].front();
+            mChunks[x + 1].pop_front();
+        }
+    }
+    if (mPlayerPos.x < mCurrentChunkIndex.x * (mSize.x * mTileSet->GetTileDimension().x * mTileScaling.x))
+    {
+        mCurrentChunkIndex.x--;
+
+        mChunks.push_front(std::deque<GridChunk*>());
+
+        for (int y = -1; y <= 1; y++)
+        {
+            Point p = {mCurrentChunkIndex.x - 1, y + mCurrentChunkIndex.y};
+            auto c = new GridChunk(mTileSet, p, mSize, mTileScaling);
+            mChunks.front().push_back(c);
+        }
+
+        for (int i = 0; i < mChunks.back().size(); ++i)
+        {
+            delete mChunks.back()[i];
+        }
+        mChunks.pop_back();
+    }
+    if (mPlayerPos.y < mCurrentChunkIndex.y * (mSize.y * mTileSet->GetTileDimension().y * mTileScaling.y))
+    {
+        mCurrentChunkIndex.y--;
+
+        for (int x = -1; x <= 1; x++)
+        {
+            Point p = {x + mCurrentChunkIndex.x, mCurrentChunkIndex.y - 1};
+            auto c = new GridChunk(mTileSet, p, mSize, mTileScaling);
+            mChunks[x + 1].push_front(c);
+            delete mChunks[x + 1].back();
+            mChunks[x + 1].pop_back();
+        }
+    }
 }

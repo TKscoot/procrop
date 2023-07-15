@@ -1,62 +1,74 @@
 [
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/Application.cpp.o -c /home/tkscoot/git/projects/procrop/source/Application.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/Application.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/Application.cpp.o -c /home/tkscoot/git/projects/procrop/source/Application.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/Application.cpp",
+  "output": "CMakeFiles/procrop.dir/source/Application.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/Debug.cpp.o -c /home/tkscoot/git/projects/procrop/source/Debug.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/Debug.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/Debug.cpp.o -c /home/tkscoot/git/projects/procrop/source/Debug.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/Debug.cpp",
+  "output": "CMakeFiles/procrop.dir/source/Debug.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/Engine.cpp.o -c /home/tkscoot/git/projects/procrop/source/Engine.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/Engine.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/Engine.cpp.o -c /home/tkscoot/git/projects/procrop/source/Engine.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/Engine.cpp",
+  "output": "CMakeFiles/procrop.dir/source/Engine.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/GameObject.cpp.o -c /home/tkscoot/git/projects/procrop/source/GameObject.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/GameObject.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/GameObject.cpp.o -c /home/tkscoot/git/projects/procrop/source/GameObject.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/GameObject.cpp",
+  "output": "CMakeFiles/procrop.dir/source/GameObject.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/GridChunk.cpp.o -c /home/tkscoot/git/projects/procrop/source/GridChunk.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/GridChunk.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/GridChunk.cpp.o -c /home/tkscoot/git/projects/procrop/source/GridChunk.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/GridChunk.cpp",
+  "output": "CMakeFiles/procrop.dir/source/GridChunk.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/Image.cpp.o -c /home/tkscoot/git/projects/procrop/source/Image.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/Image.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/Image.cpp.o -c /home/tkscoot/git/projects/procrop/source/Image.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/Image.cpp",
+  "output": "CMakeFiles/procrop.dir/source/Image.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/Player.cpp.o -c /home/tkscoot/git/projects/procrop/source/Player.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/Player.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/Player.cpp.o -c /home/tkscoot/git/projects/procrop/source/Player.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/Player.cpp",
+  "output": "CMakeFiles/procrop.dir/source/Player.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/TextRenderer.cpp.o -c /home/tkscoot/git/projects/procrop/source/TextRenderer.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/TextRenderer.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/TextRenderer.cpp.o -c /home/tkscoot/git/projects/procrop/source/TextRenderer.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/TextRenderer.cpp",
+  "output": "CMakeFiles/procrop.dir/source/TextRenderer.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/TileMap.cpp.o -c /home/tkscoot/git/projects/procrop/source/TileMap.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/TileMap.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/TileMap.cpp.o -c /home/tkscoot/git/projects/procrop/source/TileMap.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/TileMap.cpp",
+  "output": "CMakeFiles/procrop.dir/source/TileMap.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/VirtualFileSystem.cpp.o -c /home/tkscoot/git/projects/procrop/source/VirtualFileSystem.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/VirtualFileSystem.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/VirtualFileSystem.cpp.o -c /home/tkscoot/git/projects/procrop/source/VirtualFileSystem.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/VirtualFileSystem.cpp",
+  "output": "CMakeFiles/procrop.dir/source/VirtualFileSystem.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/WorldGrid.cpp.o -c /home/tkscoot/git/projects/procrop/source/WorldGrid.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/WorldGrid.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/WorldGrid.cpp.o -c /home/tkscoot/git/projects/procrop/source/WorldGrid.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/WorldGrid.cpp",
+  "output": "CMakeFiles/procrop.dir/source/WorldGrid.cpp.o"
 },
 {
   "directory": "/home/tkscoot/git/projects/procrop",
-  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -isystem /usr/include/SDL2 -g -fdiagnostics-color=always -std=gnu++17 -o CMakeFiles/procrop.dir/source/main.cpp.o -c /home/tkscoot/git/projects/procrop/source/main.cpp",
-  "file": "/home/tkscoot/git/projects/procrop/source/main.cpp"
+  "command": "/usr/bin/c++ -DFMT_SHARED -DSPDLOG_COMPILED_LIB -DSPDLOG_FMT_EXTERNAL -DSPDLOG_SHARED_LIB -I/usr/local/include/SDL2 -I/home/tkscoot/git/projects/procrop/source -I/home/tkscoot/git/projects/procrop/vendor -isystem /usr/include/SDL2 -g -std=gnu++17 -fdiagnostics-color=always -o CMakeFiles/procrop.dir/source/main.cpp.o -c /home/tkscoot/git/projects/procrop/source/main.cpp",
+  "file": "/home/tkscoot/git/projects/procrop/source/main.cpp",
+  "output": "CMakeFiles/procrop.dir/source/main.cpp.o"
 }
 ]

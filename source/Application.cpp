@@ -2,7 +2,7 @@
 
 void Application::OnStart()
 {
-    mWorldGrid->CreateGrid();
+    //mWorldGrid->CreateGrid();
 
 }
 

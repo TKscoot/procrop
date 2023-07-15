@@ -34,7 +34,9 @@ void Engine::Initialize()
             SDL_SetRenderDrawColor(mRenderer, 0x22, 0x22, 0x22, 0xFF);
         }
 
-        mTextRenderer = new TextRenderer(mRenderer, "res/fonts/OpenSans/OpenSans-Regular.ttf", 24);
+		//SDL_SetWindowFullscreen(mWindow, SDL_WINDOW_FULLSCREEN);
+
+        mTextRenderer = new TextRenderer(mRenderer, "res/fonts/OpenSans/OpenSans-Regular.ttf", 20);
 
     }
 
@@ -56,13 +58,16 @@ void Engine::Run()
 
         if (fpsTimer >= 3.0f)
         {
-            Debug::CoreInfo("FPS: {0:.1f} DeltaTime: {1:.4f}", 1 / mDeltaTime, mDeltaTime);
+            //Debug::CoreInfo("FPS: {0:.1f} DeltaTime: {1:.4f}", 1 / mDeltaTime, mDeltaTime);
             fpsTimer = 0.0f;
         }
         else
         {
             fpsTimer += mDeltaTime;
         }
+		Engine::Inst()->mTextRenderer->RenderText(
+				"FPS: "+std::to_string(1 / mDeltaTime) +" DeltaTime: " + std::to_string(mDeltaTime),
+				{ 20, 00, 100, 100 });
 
         static auto lastTime = std::chrono::high_resolution_clock::now();
 
@@ -86,12 +91,15 @@ void Engine::Run()
             renderEvent(mDeltaTime);
         }
 
+		// GUI Pass
+		mTextRenderer->RenderTextQueue();
+
         // Present to screen
         SDL_RenderPresent(mRenderer);
 
         // SDL_Delay(6.9444f - mDeltaTime);
         using namespace std::chrono_literals;
-        std::chrono::milliseconds dura(6ms);
+        std::chrono::milliseconds dura(5ms);
         std::chrono::microseconds dura1(std::chrono::microseconds(900));
         // std::this_thread::sleep_for(dura);
         // std::this_thread::sleep_for(std::chrono::milliseconds(4ms));
@@ -99,7 +107,8 @@ void Engine::Run()
         newtime = std::chrono::high_resolution_clock::now();
         std::chrono::duration<float> delta = newtime - lastTime;
 
-        std::this_thread::sleep_for(dura + dura1 - delta);
+        //std::this_thread::sleep_for(dura + dura1 - delta);
+		SDL_Delay(4.9444f - mDeltaTime);
 
         newtime = std::chrono::high_resolution_clock::now();
         delta = newtime - lastTime;
@@ -140,6 +149,8 @@ void Engine::PollSdlEvents()
 void Engine::Finalize()
 {
     SDL_DestroyWindow(mWindow);
+
+	delete sEngine;
 
     SDL_Quit();
 }

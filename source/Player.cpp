@@ -208,16 +208,17 @@ void Player::UpdatePlayerMovement(double deltaTime)
     //|a| = sqrt((ax * ax) + (ay * ay) + (az * az))
     // x = ax/|a|
 
-    float mag = SDL_sqrt((mPlayerVel.x * mPlayerVel.x) + (mPlayerVel.y * mPlayerVel.y));
+    float mag = SDL_sqrtf((mPlayerVel.x * mPlayerVel.x) + (mPlayerVel.y * mPlayerVel.y));
 
     if (mag > 0.00001f)
     {
 
-        mPlayerVel = mPlayerVel / mag;
+		mPlayerVel.x = mPlayerVel.x / mag;
+		mPlayerVel.y = mPlayerVel.y / mag;
     }
 
-    mPlayerPos.x += (mPlayerVel.x * 500.0f * deltaTime);
-    mPlayerPos.y += (mPlayerVel.y * 500.0f * deltaTime);
+    mPlayerPos.x += (mPlayerVel.x * 500.0f * (float)deltaTime);
+    mPlayerPos.y += (mPlayerVel.y * 500.0f * (float)deltaTime);
 
     // Debug::Log("x: {} y: {}", (mPlayerVel.x * 500 * deltaTime), (mPlayerVel.y * 500 * deltaTime));
 }

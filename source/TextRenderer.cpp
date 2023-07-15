@@ -18,14 +18,29 @@ TextRenderer::TextRenderer(SDL_Renderer* renderer, std::string fontPath, size_t 
 
 void TextRenderer::RenderText(std::string text, SDL_Rect rect, SDL_Color color)
 {
-	mTextSurface = TTF_RenderText_Solid(mFont, text.c_str(), color);
-	mTextTexture = SDL_CreateTextureFromSurface(mRenderer, mTextSurface);
+	TextRenderData rd ={text, rect, color};
+	mRenderQueue.push(rd);
 
-	rect.w = mTextSurface->w;
-	rect.h = mTextSurface->h;
-	
-	SDL_RenderCopy(mRenderer, mTextTexture, nullptr, &rect);
+}
 
-	SDL_FreeSurface(mTextSurface);
-	SDL_DestroyTexture(mTextTexture);
+void TextRenderer::RenderTextQueue()
+{
+	while (!mRenderQueue.empty()) {
+		auto rd = mRenderQueue.front();
+
+		mTextSurface = TTF_RenderText_Solid(mFont, rd.text.c_str(), rd.color);
+		mTextTexture = SDL_CreateTextureFromSurface(mRenderer, mTextSurface);
+
+		rd.rect.w = mTextSurface->w;
+		rd.rect.h = mTextSurface->h;
+
+		SDL_RenderCopy(mRenderer, mTextTexture, nullptr, &rd.rect);
+
+		SDL_FreeSurface(mTextSurface);
+		SDL_DestroyTexture(mTextTexture);
+
+
+		mRenderQueue.pop();
+	}
+
 }

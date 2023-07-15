@@ -1,3 +1,7 @@
+.ccls-cache
+.cache
+.cmake
+.idea
 # Prerequisites
 *.d
 

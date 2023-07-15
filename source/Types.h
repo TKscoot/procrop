@@ -1,7 +1,9 @@
 #pragma once
+
 #include <SDL2/SDL.h>
 #include <SDL_rect.h>
 
+#include <cstdint>
 #include <set>
 #include <sstream>
 #include <string>
@@ -10,12 +12,29 @@
 
 struct Point : public SDL_Point
 {
+    Point() = default;
+    Point(int _x, int _y)
+    {
+        x = _x;
+        y = _y;
+    }
+
+    bool operator==(Point& rhs)
+    {
+        return this->x == rhs.x && this->y == rhs.y;
+    }
+
+    bool operator!=(Point rhs)
+    {
+        return (this->x != rhs.x) || (this->y != rhs.y);
+    }
+
     Point operator+=(Point rhs)
     {
         return {this->x + rhs.x, this->y + rhs.y};
     }
 
-    friend Point operator+(Point &lhs, const Point &rhs)
+    friend Point operator+(Point& lhs, const Point& rhs)
     {
         return {lhs.x + rhs.x, lhs.y + rhs.y};
     }
@@ -25,37 +44,37 @@ struct Point : public SDL_Point
         return {this->x - rhs.x, this->y - rhs.y};
     }
 
-    friend Point operator-(Point &lhs, const Point &rhs)
+    friend Point operator-(Point& lhs, const Point& rhs)
     {
         return {lhs.x - rhs.x, lhs.y - rhs.y};
     }
 
-    Point operator*=(const int &rhs)
+    Point operator*=(const int& rhs)
     {
         return {this->x * rhs, this->y * rhs};
     }
 
-    friend Point operator*(int &lhs, const Point &rhs)
+    friend Point operator*(int& lhs, const Point& rhs)
     {
         return {lhs * rhs.x, lhs * rhs.y};
     }
 
-    friend Point operator*(Point &lhs, const int &rhs)
+    friend Point operator*(Point& lhs, const int& rhs)
     {
         return {lhs.x * rhs, lhs.y * rhs};
     }
 
-    Point operator/=(const int &rhs)
+    Point operator/=(const int& rhs)
     {
         return {this->x / rhs, this->y / rhs};
     }
 
-    friend Point operator/(int &lhs, const Point &rhs)
+    friend Point operator/(int& lhs, const Point& rhs)
     {
         return {lhs / rhs.x, lhs / rhs.y};
     }
 
-    friend Point operator/(Point &lhs, const int &rhs)
+    friend Point operator/(Point& lhs, const int& rhs)
     {
         return {lhs.x / rhs, lhs.y / rhs};
     }
@@ -81,9 +100,10 @@ struct Point : public SDL_Point
         p1 -= p2;
     }
 
-	std::string ToString(){
-		return "x(" + std::to_string(x) + ") y(" + std::to_string(y) + ")";
-	}
+    std::string ToString()
+    {
+        return "x(" + std::to_string(x) + ") y(" + std::to_string(y) + ")";
+    }
 };
 
 struct PointF : public SDL_FPoint
@@ -93,7 +113,7 @@ struct PointF : public SDL_FPoint
         return {this->x + rhs.x, this->y + rhs.y};
     }
 
-    friend PointF operator+(PointF &lhs, const PointF &rhs)
+    friend PointF operator+(PointF& lhs, const PointF& rhs)
     {
         return {lhs.x + rhs.x, lhs.y + rhs.y};
     }
@@ -103,37 +123,37 @@ struct PointF : public SDL_FPoint
         return {this->x - rhs.x, this->y - rhs.y};
     }
 
-    friend PointF operator-(PointF &lhs, const PointF &rhs)
+    friend PointF operator-(PointF& lhs, const PointF& rhs)
     {
         return {lhs.x - rhs.x, lhs.y - rhs.y};
     }
 
-    PointF operator*=(const int &rhs)
+    PointF operator*=(const int& rhs)
     {
         return {this->x * rhs, this->y * rhs};
     }
 
-    friend PointF operator*(int &lhs, const PointF &rhs)
+    friend PointF operator*(int& lhs, const PointF& rhs)
     {
         return {lhs * rhs.x, lhs * rhs.y};
     }
 
-    friend PointF operator*(PointF &lhs, const int &rhs)
+    friend PointF operator*(PointF& lhs, const int& rhs)
     {
         return {lhs.x * rhs, lhs.y * rhs};
     }
 
-    PointF operator/=(const int &rhs)
+    PointF operator/=(const int& rhs)
     {
         return {this->x / rhs, this->y / rhs};
     }
 
-    friend PointF operator/(int &lhs, const PointF &rhs)
+    friend PointF operator/(int& lhs, const PointF& rhs)
     {
         return {lhs / rhs.x, lhs / rhs.y};
     }
 
-    friend PointF operator/(PointF &lhs, const int &rhs)
+    friend PointF operator/(PointF& lhs, const int& rhs)
     {
         return {lhs.x / rhs, lhs.y / rhs};
     }
@@ -172,8 +192,7 @@ using StringStream = std::stringstream;
 using ResourceID = std::uint32_t;
 
 // Datastructures
-template <typename T>
-using Vector = std::vector<T>;
+template <typename T> using Vector = std::vector<T>;
 
 // template<typename T, typename Count>
 // using Array = std::array<T, Count>;

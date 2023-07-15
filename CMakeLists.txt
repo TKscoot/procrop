@@ -15,7 +15,7 @@ include_directories(${SDL2_INCLUDE_DIRS} ${SDL2_IMAGE_INCLUDE_DIRS} ${SDL2_TTF_I
 
 find_package(spdlog REQUIRED)
 
-include_directories(${PROJECT_SOURCE_DIR}/source)
+include_directories(${PROJECT_SOURCE_DIR}/source ${PROJECT_SOURCE_DIR}/vendor)
 file(GLOB SRC_FILES ${PROJECT_SOURCE_DIR}/source/*.cpp)
 
 file(GLOB helloworld_SRC
@@ -29,6 +29,6 @@ target_link_libraries(procrop PRIVATE ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} 
 
 #add_custom_command(OUTPUT)
 
-add_custom_target(test
+add_custom_target(run
     COMMAND ./${PROJECT_NAME}
 	VERBATIM)

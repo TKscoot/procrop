@@ -10,12 +10,18 @@
 #include "Debug.h"
 #include "Types.h"
 
+enum class ImageLayer{
+	BACKGROUND = 0,
+	MIDDLEGROUND,
+	FOREGROUND
+};
+
 
 class Image
 {
   public:
-    Image(std::string path);
-    Image(SDL_Texture* texture);
+    explicit Image(std::string path);
+	explicit Image(SDL_Texture* texture, bool dontDestroySdlTexture = true);
 
 	~Image();
 	
@@ -69,4 +75,5 @@ class Image
     SDL_Texture *mTexture = nullptr;
 	SDL_Texture *myTexturePart; 
 	SDL_RendererFlip mFlip = SDL_FLIP_NONE;
+	bool mDontDestroySdlTexture = false;
 };

@@ -27,9 +27,6 @@ CMAKE_BUILD_TYPE:STRING=
 //Enable colored diagnostics throughout.
 CMAKE_COLOR_DIAGNOSTICS:BOOL=ON
 
-//Enable/Disable color output during build.
-CMAKE_COLOR_MAKEFILE:BOOL=ON
-
 //CXX compiler
 CMAKE_CXX_COMPILER:STRING=/usr/bin/c++
 
@@ -262,11 +259,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=/home/tkscoot/git/projects/procrop
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=25
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=26
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
-//ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
-CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=/usr/bin/cmake
 //Path to cpack program executable.
@@ -403,7 +398,7 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding SDL2_image
 FIND_PACKAGE_MESSAGE_DETAILS_SDL2_image:INTERNAL=[/usr/local/lib/libSDL2_image.so][/usr/local/include/SDL2][v()]
 //Details about finding SDL2_ttf
-FIND_PACKAGE_MESSAGE_DETAILS_SDL2_ttf:INTERNAL=[/usr/lib/libSDL2_ttf.so][/usr/include/SDL2][v2.20.1()]
+FIND_PACKAGE_MESSAGE_DETAILS_SDL2_ttf:INTERNAL=[/usr/lib/libSDL2_ttf.so][/usr/include/SDL2][v2.20.2()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: SDL2_IMAGE_INCLUDE_DIR

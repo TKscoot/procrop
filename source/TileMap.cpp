@@ -4,7 +4,7 @@
 #include <SDL_render.h>
 #include <immintrin.h>
 
-SDL_Texture *GetAreaTextrue(SDL_Rect rect, SDL_Renderer *renderer, SDL_Texture *source, uint32_t format)
+SDL_Texture *GetAreaTexture(SDL_Rect rect, SDL_Renderer *renderer, SDL_Texture *source, uint32_t format)
 {
     SDL_Texture *result = SDL_CreateTexture(renderer, format, SDL_TEXTUREACCESS_TARGET, rect.w, rect.h);
     SDL_SetRenderTarget(renderer, result);
@@ -46,7 +46,7 @@ void TileSheet::CutTilesToTextures(SDL_Texture *tex, uint32_t format)
             r.w = mTileSize.x;
             r.h = mTileSize.y;
 
-            auto tileTex = GetAreaTextrue(r, Engine::Inst()->mRenderer, tex, format);
+            auto tileTex = GetAreaTexture(r, Engine::Inst()->mRenderer, tex, format);
 
             Image *tileImg = new Image(tileTex);
             r.x = 0;
